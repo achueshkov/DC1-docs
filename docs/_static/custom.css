@@ -222,11 +222,12 @@ article#nav nav ul li #sign_in_container div#user-menu a {
     width: 980px;    
 }
 
-div.body h1 {
-       font-size: 40px;
-       line-height: 46px;
-       text-align: center;
-       font-family:'Raleway',sans-serif; 
+h1 {
+       font-family:'Raleway',sans-serif !IMPORTANT; 
+}
+
+h2 {
+       font-family:'Raleway',sans-serif !IMPORTANT; 
 }
 
 
