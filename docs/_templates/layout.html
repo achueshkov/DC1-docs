@@ -1,0 +1,79 @@
+{# layout.html #}
+{# Import the theme's layout. #}
+{% extends "!layout.html" %}
+
+{% set css_files = css_files + ['_static/custom.css'] %}
+{% block extrahead %} <link href="https://fonts.googleapis.com/css?family=Raleway:100,300,600" rel="stylesheet" type="text/css"> {% endblock %}
+{% block document %}
+
+<header class="header">
+   <script type="text/javascript" src="https://cdn.statuspage.io/se-v2.js"></script>
+<script>
+  function checkStatus(){
+       console.warn(new Date());
+       var sp = new StatusPage.page({ page : 'njljhknhfphb' });       
+              
+    sp.status({
+        success : function(data) {
+    	   $('.color-description').text(data.status.description);
+           $("#color-dot").removeClass();
+    	   $('#color-dot').addClass(data.status.indicator);
+           }
+    });  
+  }
+  
+  checkStatus();
+  setInterval(checkStatus,5000);
+</script>
+  <div class="header-inner">
+    <div class="logo">
+      <h1 id="branding">
+      <a href="https://www.realeyesit.com/" id="header-logo">
+      </a>
+      </h1>
+    </div>
+    
+    <article id="nav" class="widget-header widget-menu-widget widget">
+<nav class="user-nav">
+    <ul class="menu menu-main-menu"> 
+        <li class="first current" id="Home">
+           <a title="Home" href="index.html">
+        			Home
+      			</a>
+        </li>       
+        <li id="support">
+            <a class="submit-a-request" href="https://support.realeyesit.com">Support</a>
+        </li> 
+      	<li id="status_page">
+            <a href="http://status.realeyesit.com" target="_blank">Status</a>
+        </li>     
+        <li style="display: none;">
+        </li>    
+    </ul>
+</nav>
+</article>
+    
+  </div>
+</header>
+
+{{ super() }}
+{% endblock %}
+
+{% block footer %}<div class='footer'> 
+
+<div id="copyright">
+    <div id="left">
+        <span>Realeyes Platform Status:</span>
+        <a href="http://status.realeyesit.com" target="_blank">
+            <span id="color-dot" class="none"></span>
+            <span class="color-description">All Systems Operational</span>
+        </a>
+    </div>
+    <div id="right">
+        <span>
+            {{copyright}}
+        </span>
+    </div>
+</div>
+</div>
+{% endblock %}
